@@ -1,0 +1,23 @@
+body {
+  height: 100vh;
+}
+
+.wraper {
+  display: flex;
+  flex-direction: column;
+  max-width: 1920px;
+  height: 100%;
+  margin-inline: auto;
+}
+
+.main {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 0;
+  height: 100%;
+  transition: 200ms;
+}
+
+.layout {
+  grid-template-columns: 1fr 29rem;
+}

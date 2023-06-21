@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css"
+      type="text/css"
+    />
+    <title>JobUp app</title>
+  </head>
+  <body>
+    <div class="wraper">
+      <header class="header">
+        <div class="logo">
+          <a class="link logo-link" href="/">jobUp</a>
+        </div>
+        <nav class="navigation">
+          <ul class="menu" role="list" id="menu">
+            <li class="menu-item">
+              <a class="link menu-link menu-link-active" href="#">Dashboard</a>
+            </li>
+            <li class="menu-item">
+              <a class="link menu-link" href="#">History</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <main class="main">
+        <section class="tasks-section">
+          <button class="tasks-section-button" type="button">+ new task</button>
+          <ul class="tasks" role="list"></ul>
+        </section>
+        <section id="map-section"></section>
+        <section class="form-section" id="sidebar">
+          <form class="form" action="#" method="post">
+            <div class="form-block form-view">
+              <p class="form-block-header">New task</p>
+              <p class="form-view-description" id="task-massage">
+                I need a plumber to unblock a toilet.
+              </p>
+              <p class="form-view-address">
+                My address is 141 Ogunlana Dr, Lagos 10128
+              </p>
+              <div class="task-buttons" id="task-buttons"></div>
+            </div>
+            <div class="form-block">
+              <p class="form-block-header">Location</p>
+              <input
+                class="form-input"
+                type="text"
+                name="location"
+                id="location"
+                placeholder="Click to enter your location"
+              />
+            </div>
+            <div class="form-block">
+              <p class="form-block-header">Service type</p>
+              <ul class="service-type-list">
+                <li class="service-type-item">
+                  <input
+                    class="form-radio"
+                    type="radio"
+                    name="service-type"
+                    value="electician"
+                    id="electician"
+                    checked
+                  />
+                  <label class="service-type-label" for="electician">
+                    <svg class="icon">
+                      <use xlink:href="/assets/img/icon-sprite.svg#light"></use>
+                    </svg>
+                    <span>Electician</span>
+                  </label>
+                </li>
+                <li class="service-type-item">
+                  <input
+                    class="form-radio"
+                    type="radio"
+                    name="service-type"
+                    value="plumber"
+                    id="plumber"
+                  />
+                  <label class="service-type-label" for="plumber">
+                    <svg class="icon">
+                      <use xlink:href="/assets/img/icon-sprite.svg#pipe"></use>
+                    </svg>
+                    <span>Plumber</span>
+                  </label>
+                </li>
+                <li class="service-type-item">
+                  <input
+                    class="form-radio"
+                    type="radio"
+                    name="service-type"
+                    value="gardener"
+                    id="gardener"
+                  />
+                  <label class="service-type-label" for="gardener">
+                    <svg class="icon">
+                      <use
+                        xlink:href="/assets/img/icon-sprite.svg#garden"
+                      ></use>
+                    </svg>
+                    <span>Gardener</span>
+                  </label>
+                </li>
+                <li class="service-type-item">
+                  <input
+                    class="form-radio"
+                    type="radio"
+                    name="service-type"
+                    value="housekeeper"
+                    id="housekeeper"
+                  />
+                  <label class="service-type-label" for="housekeeper">
+                    <svg class="icon">
+                      <use xlink:href="/assets/img/icon-sprite.svg#iron"></use>
+                    </svg>
+                    <span>Housekeeper</span>
+                  </label>
+                </li>
+                <li class="service-type-item">
+                  <input
+                    class="form-radio"
+                    type="radio"
+                    name="service-type"
+                    value="cook"
+                    id="cook"
+                  />
+                  <label class="service-type-label" for="cook">
+                    <svg class="icon">
+                      <use xlink:href="/assets/img/icon-sprite.svg#cook"></use>
+                    </svg>
+                    <span>Cook</span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+            <div class="form-block">
+              <p class="form-block-header" id="tasks-header"></p>
+              <ul class="tasks-type-list" id="tasks-type-list"></ul>
+            </div>
+            <div class="form-block">
+              <p class="form-block-header">Task description</p>
+              <textarea
+                rows="1"
+                class="description-field"
+                name="description"
+                id="description"
+                placeholder="Click to describe your situation"
+              ></textarea>
+            </div>
+            <div class="form-block">
+              <p class="form-block-header">Due date</p>
+              <input
+                class="form-input form-calendar"
+                type="date"
+                id="date"
+                name="date"
+              />
+              <input
+                class="form-input form-time"
+                type="time"
+                id="time"
+                name="time"
+                min="09:00"
+                max="18:00"
+              />
+            </div>
+          </form>
+        </section>
+      </main>
+    </div>
+    <script type="module" src="index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+{
+  "name": "jobup",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "stylelint-check": "stylelint-config-prettier-check"
+  },
+  "browserslist": [
+    ">0.3%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "devDependencies": {
+    "autoprefixer": "^10.4.14",
+    "eslint": "^8.41.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-prettier": "^4.2.1",
+    "postcss-load-config": "^4.0.1",
+    "postcss-plugin": "^1.0.0",
+    "prettier": "2.8.8",
+    "stylelint": "^15.6.2",
+    "stylelint-config-prettier": "^9.0.5",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-order": "^6.0.3",
+    "vite": "^4.3.2"
+  },
+  "dependencies": {
+    "date-and-time": "^3.0.0"
+  }
+}
