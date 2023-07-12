@@ -21,7 +21,7 @@ cd jobup-app
 3. Установите зависимости:
 
 ```bash
-npm install
+npm ci
 ```
 
 ## Запуск проекта
